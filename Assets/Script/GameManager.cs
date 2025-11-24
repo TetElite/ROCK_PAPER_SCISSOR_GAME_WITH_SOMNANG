@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class GameManager : MonoBehaviour
 
     private int currentScore = 0;  // Starts at 0, goes up or down
     private bool gameOver = false;
+
+    // Store the final result for Game Over scene
+    public static string finalResult;
+    public static int finalPlayerScore;
+    public static int finalComputerScore;
 
     void Start()
     {
@@ -81,13 +87,27 @@ public class GameManager : MonoBehaviour
     {
         if (currentScore >= scoreToWin)
         {
-            resultText.text = "You Win!";
+            resultText.text = "You Win The Game!";
             gameOver = true;
+            
+            // Store final results and load Game Over scene
+            finalResult = "VICTORY!";
+            finalPlayerScore = Mathf.Max(0, currentScore);
+            finalComputerScore = Mathf.Max(0, -currentScore);
+            
+            StartCoroutine(LoadGameOverScene());
         }
         else if (currentScore <= -scoreToWin)
         {
-            resultText.text = "Computer Wins!";
+            resultText.text = "Computer Wins The Game!";
             gameOver = true;
+            
+            // Store final results and load Game Over scene
+            finalResult = "DEFEAT!";
+            finalPlayerScore = Mathf.Max(0, currentScore);
+            finalComputerScore = Mathf.Max(0, -currentScore);
+            
+            StartCoroutine(LoadGameOverScene());
         }
         else
         {
@@ -96,6 +116,15 @@ public class GameManager : MonoBehaviour
             playerChoiceImage.sprite = questionMarkSprite;
             computerChoiceImage.sprite = questionMarkSprite;
         }
+    }
+
+    IEnumerator LoadGameOverScene()
+    {
+        // Wait a moment to show the final result
+        yield return new WaitForSeconds(2f);
+        
+        // Load the Game Over scene
+        SceneManager.LoadScene("GameOver");
     }
 
     void DisplayChoice(Image targetImage, int choice)
