@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 100653760}
   - component: {fileID: 100653762}
   - component: {fileID: 100653761}
+  - component: {fileID: 100653763}
   m_Layer: 5
   m_Name: scissor1
   m_TagString: Untagged
@@ -265,6 +266,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100653759}
   m_CullTransparentMesh: 1
+--- !u!114 &100653763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100653759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc18ed0c039752a19b79641e903818c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swayAngle: 13.7
+  swaySpeed: 2.9
+  startDelay: 0
+  useScaleSway: 0
+  scaleSwayAmount: 0.1
 --- !u!1 &174581532
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,8 +554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc18ed0c039752a19b79641e903818c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swayAngle: 8
-  swaySpeed: 2
+  swayAngle: 11.17
+  swaySpeed: 3.44
   startDelay: 0
   useScaleSway: 0
   scaleSwayAmount: 1.75
@@ -629,7 +647,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.07
+  m_PixelsPerUnitMultiplier: 0.09
 --- !u!222 &677651495
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1056,6 +1074,7 @@ GameObject:
   - component: {fileID: 2064496666}
   - component: {fileID: 2064496668}
   - component: {fileID: 2064496667}
+  - component: {fileID: 2064496669}
   m_Layer: 5
   m_Name: rock1
   m_TagString: Untagged
@@ -1120,6 +1139,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064496665}
   m_CullTransparentMesh: 1
+--- !u!114 &2064496669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064496665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc18ed0c039752a19b79641e903818c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swayAngle: 14.93
+  swaySpeed: 3.58
+  startDelay: 0
+  useScaleSway: 0
+  scaleSwayAmount: 0.1
 --- !u!1 &2140487410
 GameObject:
   m_ObjectHideFlags: 0
