@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
     {
         UpdateScoreDisplay();
         resultText.text = "Select the button below";
+        
+        // Reset static variables when starting a new game
+        finalResult = "";
+        finalPlayerScore = 0;
+        finalComputerScore = 0;
     }
 
     public void OnPlayerChoice(int choice)
@@ -123,8 +128,8 @@ public class GameManager : MonoBehaviour
         // Wait a moment to show the final result
         yield return new WaitForSeconds(2f);
         
-        // Load the Game Over scene
-        SceneManager.LoadScene("GameOver");
+        // Load the Game Over scene - MAKE SURE THIS MATCHES YOUR SCENE NAME
+        SceneManager.LoadScene("GameOverMenu");
     }
 
     void DisplayChoice(Image targetImage, int choice)
@@ -153,6 +158,7 @@ public class GameManager : MonoBehaviour
         computerScoreText.text = computerDisplayScore.ToString();
     }
 
+    // Optional: Reset method if you want to restart without leaving the scene
     public void ResetGame()
     {
         currentScore = 0;
@@ -161,5 +167,27 @@ public class GameManager : MonoBehaviour
         computerChoiceImage.sprite = questionMarkSprite;
         UpdateScoreDisplay();
         resultText.text = "Select the button below";
+    }
+
+    // Optional: Method to return to main menu
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu"); // Make sure this matches your main menu scene name
+    }
+
+    // Optional: Keyboard shortcuts during gameplay
+    void Update()
+    {
+        // Press Escape to return to main menu during game
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ReturnToMainMenu();
+        }
+        
+        // Press R to reset current game (optional)
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetGame();
+        }
     }
 }
